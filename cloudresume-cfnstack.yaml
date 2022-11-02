@@ -3,7 +3,7 @@ Description: AWS CloudFormation template for creating Cloud Resume Challenge res
 
 Parameters:
   S3BucketName:
-    Default: skyscanner-sandbox-eqcloudresume
+    # Default: [REMOVED FOR PUBLIC REPO]
     Description: s3 bucket name for static website
     Type: String
 
@@ -51,7 +51,7 @@ Resources:
     Type: AWS::Route53::RecordSet
     Properties:
       # HostedZoneId: [REMOVED HOSTED ZONE ID FOR PUBLIC REPO]
-      Name: eqcloudresume.skyscannerlabs.net
+      # Name: [REMOVED FOR PUBLIC REPO]
       Type: A
       AliasTarget:
         DNSName: !GetAtt eqCloudFrontDistribution.DomainName
@@ -62,7 +62,7 @@ Resources:
     Properties:
       DistributionConfig:
         Aliases: 
-          - eqcloudresume.skyscannerlabs.net
+          # - [REMOVED FOR PUBLIC REPO]
         Enabled: true
         IPV6Enabled: false
         Origins:
