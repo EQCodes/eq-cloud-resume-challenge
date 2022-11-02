@@ -1,7 +1,9 @@
 <h1>Cloud Resume Challenge</h1>
 <h2>Overview</h2>
 
-This is my online AWS hosted cloud resume as part of the [Cloud Resume Challenge](https://cloudresumechallenge.dev/docs/the-challenge/aws) . I used this as a learning project when I joined the Skyscanner Production Platform Tribe as a Software Engineer after completing the [Code First Girls Full Stack Degree](https://codefirstgirls.com/courses/cfgdegree/) to develop my understanding of AWS services, Infrastructure as Code and CI/CD.
+This is my online AWS hosted cloud resume as part of the [Cloud Resume Challenge](https://cloudresumechallenge.dev/docs/the-challenge/aws) . I used this as a learning project when I joined Skyscanner as a Software Engineer after completing the [Code First Girls Full Stack Degree](https://codefirstgirls.com/courses/cfgdegree/) to develop my understanding of AWS services, Infrastructure as Code and CI/CD.
+
+This version of the repo is a copy of my internal Skyscanner repo, so various CICD files and lines of config have been removed for this public repo.
 
 The site can be viewed [here](https://eqcloudresume.skyscannerlabs.net) and, when connected to the Skyscanner VPN, there is a live visitor counter. Screenshots of the web page are below:
 
@@ -9,9 +11,9 @@ The site can be viewed [here](https://eqcloudresume.skyscannerlabs.net) and, whe
 ![Cloud Resume Website Screenshot](/website-screenshots/Screenshot%202022-10-18%20at%2011.58.08.png)
 ![Cloud Resume Website Screenshot](/website-screenshots/Screenshot%202022-10-18%20at%2011.58.36.png)
 
-I chose to do a slightly altered version of the 'original' Cloud Resume Challenge in order to familiarise myself with Skyscanner tools and Skyscanner AWS accounts. As such, I replaced the suggested AWS SAM with CloudFormation and GitHub Actions with Drone and Slingshot for CI/CD.
+I chose to do a slightly altered version of the 'original' Cloud Resume Challenge in order to familiarise myself with Skyscanner tools and Skyscanner AWS accounts. As such, I replaced the suggested AWS SAM with CloudFormation and GitHub Actions with Drone and Slingshot (internal tool) for CI/CD.
 
-The project was created in the Skyscanner Sandbox AWS account. I firstly worked through the steps of the project using the AWS console to familiarise myself with the different services, before then carrying out each step again but using Infrastructure as Code rather than clicking around the Console.
+The project was created in a Sandbox AWS account. I firstly worked through the steps of the project using the AWS console to familiarise myself with the different services, before then carrying out each step again but using Infrastructure as Code rather than clicking around the Console.
 
 The overall architecture of my site is as follows:
 
@@ -29,12 +31,6 @@ The overall architecture of my site is as follows:
     <li><b>GitHub, Drone & Slingshot for CI/CD:</b> a standard internal deployment pipeline was used for source control and deployment. Changes to GitHub initiates a Drone build which then triggers internal Skyscanner tool, Slingshot, to deploy those changes in AWS.</li>
 </ul>
 <br>
-
-<h2>Other Notes</h2>
-
-The core website files and CloudFormation stack are in this repo, and the Lambda function and is held in a separate repo titled [eq_cloudresume_lambda](https://github.skyscannertools.net/eilidh-quinn/eq_cloudresume_lambda). If this website was to be a production level piece of work, I would integrate these repos together. 
-
-Additionally, the SSL Certificate from the first attempt at the challenge using the AWS Console was used in the IaC version due to conflicts with Slingshot deployments to us-east-1, where SSL Certificates must be deployed.
 
 <h2>Summary</h2>
 
